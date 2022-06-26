@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"><style>
+</style>
+<title>New Peula</title>
+</head>
+<body>
+<div class="p-5 bg-primary text-white text-center">
+  <h1 class="display-3">יצירת פעולה חדשה</h1>
+  <p>פעולך: פלטפורמה לבניית מערכי פעולה</p> 
+</div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+	<li class="nav-item">
+	<a class="nav-link active" href="/">ראשי</a>
+	</li>
+	<li class="nav-item">
+	<a class="nav-link active" href="/new_peula">יצירת פעולה חדשה</a><br>
+	</li>
+	<li class="nav-item">
+	<a class="nav-link active" href="/mypeulot">הפעולות שלי</a><br>
+	</li>
+    </ul>
+  </div>
+</nav>
+
+<h1>פעולה חדשה</h1>
+<form action="{{ url_for('create_new') }}" method="post">
+	<div class="mb-3 mt-3">
+
+		<label for="title" class="form-label">כותרת: </label>
+		<input type="text" id="title" name="title" class="form-control"></input><br><br>
+
+		<label for="matarot" class="form-label">מטרות: </label>
+		<ol id="matarot">
+		<li><input type="text" id="matarot-0" name="matarot-0" class="form-control"></li>
+		</ol>
+		<button type="button" onClick="Add('matarot')" class="btn btn-primary">הוספת מטרה</button><br><br>
+		<table class="table table-bordered table-hover">
+		<tbody id="methods">
+		<tr>
+			<th>מתודה</th>
+			<th>הסבר</th>
+			<th>זמן</th>
+			<th>עזרים</th>
+			<th>הערות</th>
+		</tr>
+
+		<tr>
+			<td><input type="text" id="method-0" name="method-0" class="form-control"></td>
+			<td><input type="text" id="desc-0" name="desc-0" class="form-control"></td>
+			<td><input type="text" id="time-0" name="time-0" class="form-control"></td>
+			<td><input type="text" id="azarim-0" name="azarim-0" class="form-control"></td>
+			<td><input type="text" id="comments-0" name="comments-0" class="form-control"></td>
+		</tr>
+		</tbody>
+		</table>
+		<button type="button" onClick="Add('methods')" class="btn btn-primary">הוספת מתודה</button><br><br>
+		<input type="submit" value="שמירה" class="btn btn-primary">
+	</div>
+</form>
+<script src="{{ url_for('static', filename='jscripts.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
